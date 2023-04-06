@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         widget.setLayout(self._layout)
         self.setCentralWidget(widget)
 
-        self.folder_open_button = QPushButton('Load a folder of .dat files')
+        self.folder_open_button = QPushButton('Load a folder of files')
         self._layout.addWidget(self.folder_open_button)
         self.folder_open_button.clicked.connect(self._open_session_folder_dialog)
 
