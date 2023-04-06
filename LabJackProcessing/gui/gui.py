@@ -2,7 +2,7 @@ import logging
 from pathlib import Path
 
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QFileDialog, QMainWindow, QLabel
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QFileDialog, QMainWindow, QLabel, QComboBox
 
 from LabJackProcessing.gui.widgets.run_button_widget import RunButtonWidget
 
@@ -27,6 +27,13 @@ class MainWindow(QMainWindow):
         self._path_to_folder_label = QLabel("No folder selected")
         self._layout.addWidget(self._path_to_folder_label)
 
+        self.file_type_selector = QComboBox()
+        self.file_type_selector.addItem(".dat")
+        self.file_type_selector.addItem(".csv")
+        self.file_type_selector.addItem(".tsv")
+        self._layout.addWidget(self.file_type_selector)
+        self.file_type_selector.currentIndexChanged.connect(self.get_selected_file_type)
+
         self.run_button = RunButtonWidget(self)
         self._layout.addWidget(self.run_button)
 
@@ -37,6 +44,10 @@ class MainWindow(QMainWindow):
             self.run_button.set_folder_path(Path(self._folder_path))
             self.run_button.run_button_widget.setEnabled(True)
 
+    def get_selected_file_type(self):
+        file_type = self.file_type_selector.currentText()
+        logger.info(f"File type selected: {file_type}")
+        self.run_button.set_file_type(file_type)
 
 
 

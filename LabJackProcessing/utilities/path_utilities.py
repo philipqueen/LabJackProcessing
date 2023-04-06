@@ -41,6 +41,27 @@ def create_directory(parent_directory: Path, directory_name: str) -> Path:
 
     return new_directory_path
 
+def get_file_name(file_path: Union[str, Path]) -> str:
+    """
+    Get the name of the file without directories or file extensions.
+
+    Args:
+        file_path (Union[str, Path]): The input file path as a string or a Path object.
+
+    Returns:
+        str: The name of the file without directories or file extensions.
+    """
+    file_path = ensure_path_object(file_path)
+    
+    try:
+        file_name = file_path.stem
+        logger.info(f"Retrieved file name: {file_name} from path: {file_path}")
+        return file_name
+    except Exception as e:
+        logger.error(f"Error retrieving file name from path: {file_path}. Exception: {e}")
+        raise
+
+
 def ensure_path_object(path: Union[str, Path]) -> Path:
     """
     Ensure the input is a Path object. If the input is a string, convert it to a Path object.

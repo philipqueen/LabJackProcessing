@@ -2,6 +2,8 @@ import logging
 from pathlib import Path
 from glob import glob
 
+logger = logging.getLogger(__name__)
+
 def find_files_in_folder(folder_path: Path, file_extension: str) -> list:
     """
     Return a list of all video files in the base_path folder that match the given file type.
@@ -19,7 +21,7 @@ def find_files_in_folder(folder_path: Path, file_extension: str) -> list:
     # because glob behaves differently on windows vs. mac/linux, we collect all files both upper and lowercase, and remove redundant files that appear on windows
     unique_video_filepath_list = get_unique_list(video_filepath_list)
 
-    logging.info(f"{len(unique_video_filepath_list)} videos found in folder")
+    logger.info(f"{len(unique_video_filepath_list)} videos found in folder")
 
     return unique_video_filepath_list
 
