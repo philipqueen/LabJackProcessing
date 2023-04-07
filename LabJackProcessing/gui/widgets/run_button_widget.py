@@ -1,6 +1,6 @@
 import logging
 
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QSizePolicy
 
 from LabJackProcessing.graph_folder_of_files import graph_folder_of_files
 
@@ -16,6 +16,8 @@ class RunButtonWidget(QWidget):
         self._layout.addWidget(self._title)
         
         self.run_button_widget = QPushButton('Run',self)
+        self.run_button_widget.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        self.run_button_widget.setFixedSize(100, 40)
         self.run_button_widget.setEnabled(False)
         self._layout.addWidget(self.run_button_widget)
 
