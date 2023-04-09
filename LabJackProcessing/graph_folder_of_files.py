@@ -6,8 +6,9 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-from utilities.path_utilities import get_parent_directory, create_directory, get_file_name
-from utilities.file_search import find_files_in_folder
+from LabJackProcessing.utilities.path_utilities import get_parent_directory, create_directory, get_file_name
+from LabJackProcessing.utilities.file_search import find_files_in_folder
+from LabJackProcessing.utilities.data_loader import load_data
 
 def graph_folder_of_files(data_folder_path: Path, file_type: str):
     # create folder for graphs
@@ -24,13 +25,7 @@ def graph_folder_of_files(data_folder_path: Path, file_type: str):
         graph_name = file_name + ".jpg"
         graph_path = graph_folder_path / graph_name
 
-        # load csv data into pandas dataframe
-        logger.info(f"Opening {file_name}...")
-        rows_to_skip = 2 #files from lab jack have a few nonconforming rows at the top that will mess with pandas
-        df = pd.read_csv(data_folder_path / file, sep='\t', skiprows = rows_to_skip)
-
-        # set column names
-        df.columns = ['Time', 'Voltage1', 'Voltage2', 'Distance_Traveled', 'Force_in_kN']
+        df = load_data(data_folder_path / file)
 
         # find max force
         max_force = df['Force_in_kN'].max()
