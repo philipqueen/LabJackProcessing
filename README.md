@@ -13,8 +13,12 @@ To start using this repository, follow these steps:
 4. After installing the required dependencies, you can start the GUI by running the following command in the terminal (or command prompt): `python __main__.py`
 
 ## Using the GUI
-Once the GUI is open, click the "Load a folder of files" button to navigate to the folder containing your LabJack data files (.dat, .csv, or .tsv).
-After selecting the folder, click the "Run" button to start processing the data and creating graphs for all the data files in the folder.
+Once the GUI is open, choose either the "Batch Graph Data Files" or "Graph Single Data File" tab. The "Batch Graph Data Files" tab allows you to generate plots for a whole folder of data files at once, and automatically saves them to file.
+
+The "Graph Single Data File" allows you to display any data file in an interactive plot.
+
+By right clicking on the plot you can export the image, or perform analyses like downsampling the data.
+
 
 ## Contributing
 If you'd like to contribute to the repository, feel free to open an issue or create a pull request with your changes.
