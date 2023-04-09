@@ -14,11 +14,13 @@ To start using this repository, follow these steps:
 
 ## Using the GUI
 Once the GUI is open, choose either the "Batch Graph Data Files" or "Graph Single Data File" tab. The "Batch Graph Data Files" tab allows you to generate plots for a whole folder of data files at once, and automatically saves them to file.
+<img width="589" alt="Batch Graph Data Files Screenshot" src="https://user-images.githubusercontent.com/24758117/230753172-ec68ec50-f8a2-4589-937c-422ced3f308e.png">
 
 The "Graph Single Data File" allows you to display any data file in an interactive plot.
+<img width="802" alt="Graph Single Data File Screenshot" src="https://user-images.githubusercontent.com/24758117/230753201-affdc843-7b97-4e0d-98c0-05adf4b1a8bb.png">
 
 By right clicking on the plot you can export the image, or perform analyses like downsampling the data.
-
+<img width="1140" alt="Downsampling Data Through Right Click" src="https://user-images.githubusercontent.com/24758117/230753219-588f29cc-f704-4552-9109-a234f61fd5d1.png">
 
 ## Contributing
 If you'd like to contribute to the repository, feel free to open an issue or create a pull request with your changes.
